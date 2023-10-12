@@ -4,6 +4,7 @@
 # User-specific stuff
 .idea
 .idea_modules/
+node_modules
 
 vendor
 ### Go template
@@ -21,3 +22,4 @@ vendor
 *.out
 test-results
 .cache
+dist
