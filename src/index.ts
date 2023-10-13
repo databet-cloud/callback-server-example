@@ -10,6 +10,8 @@ import {
     registerBetEndpoints
 } from './callback-server/bet';
 import { CallbackRouter } from './callback-server';
+import { registerHeartbeatEndpoints } from './callback-server/heartbeat/register-heartbeat-endpoints';
+import { HeartbeatRequest } from './callback-server/heartbeat';
 
 dotenv.config();
 
@@ -49,6 +51,14 @@ registerBetEndpoints(databetRouter, {
         return null
     },
     betUnsettle: (req: BetUnsettleRequest): CallbackError | null => {
+        console.log(req)
+
+        return null
+    }
+})
+
+registerHeartbeatEndpoints(databetRouter, {
+    heartbeat(req: HeartbeatRequest): ErrorCallback | null {
         console.log(req)
 
         return null
