@@ -16,7 +16,7 @@ dotenv.config();
 const app: Application = express();
 
 // Configurable endpoint prefix (default is '/databet')
-const endpointPrefix: string = process.env.ENDPOINT_PREFIX || '/databet';
+const callbackServerPrefix: string = process.env.CALLBACK_SERVER_PREFIX || '/databet';
 
 // Middleware to log incoming requests
 app.use((req, res, next) => {
@@ -54,11 +54,11 @@ registerBetEndpoints(databetRouter, {
     }
 })
 
-app.use(endpointPrefix, databetRouter)
+app.use(callbackServerPrefix, databetRouter)
 
 // Start the server
 const PORT: number = parseInt(process.env.LISTEN || '3000', 10) || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`);
-    console.log(`API endpoint prefix: ${endpointPrefix}`);
+    console.log(`Callback server prefix: ${callbackServerPrefix}`);
 });
