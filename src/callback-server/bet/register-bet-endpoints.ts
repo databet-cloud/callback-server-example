@@ -1,4 +1,4 @@
-import express, { NextFunction, Request, Response, Router } from 'express'
+import express, { Response, Router } from 'express'
 import {
     BetCallbackServer,
     BetDeclineRequest,

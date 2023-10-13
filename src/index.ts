@@ -1,14 +1,14 @@
 import express, { Application } from 'express';
 
 import dotenv from 'dotenv';
-import { registerBetEndpoints } from './callback-server/bet/register-bet-endpoints';
 import { CallbackError } from './models';
 import {
     BetDeclineRequest,
     BetRequest,
     BetSettleRequest,
-    BetUnsettleRequest
-} from './callback-server/bet/bet-callback-server';
+    BetUnsettleRequest,
+    registerBetEndpoints
+} from './callback-server/bet';
 
 dotenv.config();
 
