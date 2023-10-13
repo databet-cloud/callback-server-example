@@ -9,6 +9,7 @@ import {
     BetUnsettleRequest,
     registerBetEndpoints
 } from './callback-server/bet';
+import { CallbackRouter } from './callback-server';
 
 dotenv.config();
 
@@ -24,7 +25,7 @@ app.use((req, res, next) => {
     next();
 });
 
-const databetRouter = express.Router()
+const databetRouter = CallbackRouter()
 
 registerBetEndpoints(databetRouter, {
     betPlace: (req: BetRequest): CallbackError | null => {

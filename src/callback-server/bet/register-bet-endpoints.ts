@@ -7,12 +7,8 @@ import {
     BetUnsettleRequest
 } from './bet-callback-server';
 import { processRequest, TypedRequestBody } from '../process-request';
-import { callbackServerBodyMiddleware } from '../body-middleware';
 
 export const registerBetEndpoints = (router: Router, server: BetCallbackServer) => {
-    router.use(express.json())
-    router.use(callbackServerBodyMiddleware);
-
     router.post('/bet/place', (req: TypedRequestBody<BetRequest>, res: Response) => {
         processRequest(server.betPlace, req, res)
     })
